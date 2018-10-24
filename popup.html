@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/popup.js"></script>
+    <style>
+        body {
+            width: 180px;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        button {
+            width: 200px;
+        }
+
+        button ~ button {
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 0;
+            color: #666666;
+        }
+
+        i {
+            color: #ccc8c8;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .add-area {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container" class="container">
+
+    <div class="button-area">
+
+
+        <div class="account-btn-area" id="accountBtnArea">
+
+        </div>
+
+        <div class="button-row">
+            <button class="account-btn add-btn" id="showAddBtn"><i class="fa fa-plus"></i>&nbsp;添加帐号</button>
+        </div>
+    </div>
+
+    <div class="add-area">
+
+        <div class="add-contianer">
+
+            <div class="add-container-row">
+                <label for="hidden-key"><i class="fa fa-paw"></i>&nbsp;名称：</label>
+                <input type="text" name="accountName" id="hidden-key"/>
+            </div>
+
+
+            <div class="add-container-row btn-area">
+                <button id="cancelBtn" class="cancel-btn"><i class="fa fa-close"></i>&nbsp;取消</button>
+                <button id="confirmBtn" class="confirm-btn"><i class="fa fa-check"></i>&nbsp;确认</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <!-- Powered by kyrieliu -->
+        <i class="fa fa-chrome"> autoLogin</i>
+    </div>
+</div>
+
+
+</body>
+</html>

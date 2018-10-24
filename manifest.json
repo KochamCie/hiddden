@@ -1,0 +1,23 @@
+{
+  "name": "hiddden",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "hiddden html element",
+  "browser_action": {
+    "default_icon": "image/666.png",
+    "default_title": "hiddden",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [ "<all_urls>" ],
+      "js": [ "js/jquery-2.0.3.min.js", "js/content-script.js" ]
+    }
+  ],
+  "permissions": [
+    "tabs",  "notifications"
+  ]
+}
