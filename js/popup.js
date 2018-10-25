@@ -24,13 +24,20 @@ const Plugin = {
         var that = this;
         //确认按钮
         $("#confirmBtn").bind("click", function () {
-            var keyword = $("#hidden-key").val();
-            that.setStorage("HIDDDEN", keyword);
+
+
             that.clearInput();
             chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {
+                var tab = tabs[0];
+                var tabUrl = tab.url;
+                var tabId = tab.id;
+                var domain = getDomain(tabUrl); // storage key
+                var keyword = $("#hidden-key").val();
+                that.setStorage(domain, keyword);
+                chrome.tabs.sendMessage(tabId, {
                     action: "clean",
-                    "HIDDDEN": localStorage.getItem("HIDDDEN")
+                    "itemk": domain,
+                    "itemv": that.getStorage(domain)
                 }, function (response) {
                     var win = chrome.extension.getBackgroundPage();
                     win.data = response;
@@ -78,4 +85,31 @@ const Plugin = {
 $(function () {
     console.log("plugin in")
     Plugin.init()
+    $(".newitem").hide();
+    $(".success").click(function(){
+        $(".newitem").show();
+        $(".el-input__inner").focus();
+        $(".success").hide();
+    })
+
+
+    $(".el-input__inner").blur(function(){
+        $(".newitem").hide();
+        $(".success").show();
+    });
 });
+
+function getDomain(url) {
+    var j = 0, startIndex = 0, endIndex = 0;
+    for (var i = 0; i < url.length; i++) {
+        if (url.charAt(i) == '/') {
+            j++;
+            if (j == 2)
+                startIndex = i;
+            else if (j == 3)
+                endIndex = i;
+        }
+
+    }
+    return url.substring(startIndex + 1, endIndex);
+}

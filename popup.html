@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>hiddden</title>
     <meta charset="utf-8"/>
     <script src="js/jquery-2.0.3.min.js"></script>
     <script src="js/popup.js"></script>
     <style>
         body {
-            width: 180px;
+            width: 512px;
             text-align: center;
             padding-top: 10px;
+            background-color: aliceblue;
         }
 
         button {
@@ -37,8 +38,124 @@
             flex-direction: column;
             padding: 20px;
         }
+
         .add-area {
-            display: none;
+            /*display: none;*/
+        }
+
+        .el-tag {
+
+            /*background-color: rgba(64, 158, 255, .1);*/
+            display: inline-block;
+            padding: 0 10px;
+            height: 32px;
+            line-height: 30px;
+            font-size: 12px;
+            color: #909399;
+            border-radius: 4px;
+            box-sizing: border-box;
+            border: 1px solid rgba(64, 158, 255, .2);
+            white-space: nowrap;
+        }
+
+        .el-tag .el-icon-close {
+            border-radius: 50%;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            font-size: 12px;
+            height: 16px;
+            width: 16px;
+            line-height: 16px;
+            vertical-align: middle;
+            top: -1px;
+            right: -5px;
+            color: #409eff;
+        }
+
+        .el-icon-close:before {
+            content: "X";
+        }
+
+        .el-icon-close:hover {
+            background-color: red;
+        }
+
+        .button-new-tag {
+            margin-left: 10px;
+            height: 32px;
+            line-height: 30px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .el-button--small {
+            padding: 9px 15px;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+
+        .el-button {
+            display: inline-block;
+            line-height: 1;
+            white-space: nowrap;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #dcdfe6;
+            border-color: #dcdfe6;
+            color: #606266;
+            -webkit-appearance: none;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+            margin: 0;
+            transition: .1s;
+            font-weight: 500;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .danger {
+            background-color: hsla(0,87%,69%,.1);
+            border-color: hsla(0,87%,69%,.2);
+            color: #f56c6c;
+        }
+        .success {
+            background-color: rgba(103,194,58,.1);
+            border-color: rgba(103,194,58,.2);
+            color: #409eff;
+        }
+
+        .input-new-tag {
+            width: 200px;
+            margin-left: 10px;
+            vertical-align: bottom;
+            font-size: 13px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .el-input__inner {
+            -webkit-appearance: none;
+            background-color: #fff;
+            background-image: none;
+            border-radius: 4px;
+            border: 1px solid #dcdfe6;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #606266;
+            display: inline-block;
+            font-size: inherit;
+            height: 32px;
+            line-height: 32px;
+            outline: 0;
+            padding: 0 15px;
+            -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            width: 100%;
         }
     </style>
 </head>
@@ -46,16 +163,32 @@
 
 <div id="container" class="container">
 
+    <div id="items">
+        <span class="el-tag">
+            标签一
+            <i class="el-tag__close el-icon-close"></i>
+        </span>
+        <span class="el-tag">
+            标签一一
+            <i class="el-tag__close el-icon-close"></i>
+        </span>
+        <span class="el-tag">
+            标签一一一
+            <i class="el-tag__close el-icon-close"></i>
+        </span>
+    </div>
+
+
     <div class="button-area">
 
-
-        <div class="account-btn-area" id="accountBtnArea">
-
+        <button type="button" class="el-button button-new-tag el-button--small success"><span>+ New Tag</span>
+        </button>
+        <div class="input-new-tag el-input el-input--small newitem">
+            <input type="text" autocomplete="off" class="el-input__inner">
         </div>
+        <button type="button" class="el-button button-new-tag el-button--small danger"><span>Clear</span>
+        </button>
 
-        <div class="button-row">
-            <button class="account-btn add-btn" id="showAddBtn"><i class="fa fa-plus"></i>&nbsp;添加帐号</button>
-        </div>
     </div>
 
     <div class="add-area">
@@ -78,7 +211,7 @@
 
     <div class="footer">
         <!-- Powered by kyrieliu -->
-        <i class="fa fa-chrome"> autoLogin</i>
+        <i class="fa fa-chrome"> hiddden </i>
     </div>
 </div>
 

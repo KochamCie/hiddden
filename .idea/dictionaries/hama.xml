@@ -2,6 +2,9 @@
   <dictionary name="hama">
     <words>
       <w>hiddden</w>
+      <w>itemk</w>
+      <w>itemv</w>
+      <w>newitem</w>
     </words>
   </dictionary>
 </component>
