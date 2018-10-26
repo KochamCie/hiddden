@@ -46,6 +46,8 @@ const Plugin = {
             var exist = false;
             var newItem = $(".new-item-input").val();
 
+			if(!newItem) return;
+
             // item exist?
             $("#items .el-tag").each(function () {
                 console.log($(this).text())
