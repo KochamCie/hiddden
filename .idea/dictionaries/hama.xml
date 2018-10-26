@@ -1,10 +1,13 @@
 <component name="ProjectDictionaryState">
   <dictionary name="hama">
     <words>
+      <w>headeri</w>
       <w>hiddden</w>
       <w>itemk</w>
       <w>itemv</w>
       <w>newitem</w>
+      <w>removeall</w>
+      <w>removesingle</w>
     </words>
   </dictionary>
 </component>

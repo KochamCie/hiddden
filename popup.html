@@ -9,7 +9,8 @@
         body {
             width: 512px;
             text-align: center;
-            padding-top: 10px;
+            /*padding-top: 10px;*/
+            margin-top: 0px;
             background-color: aliceblue;
         }
 
@@ -36,11 +37,7 @@
         .container {
             display: flex;
             flex-direction: column;
-            padding: 20px;
-        }
-
-        .add-area {
-            /*display: none;*/
+            padding: 10px 20px 10px;
         }
 
         .el-tag {
@@ -56,6 +53,7 @@
             box-sizing: border-box;
             border: 1px solid rgba(64, 158, 255, .2);
             white-space: nowrap;
+            margin: 5px;
         }
 
         .el-tag .el-icon-close {
@@ -118,14 +116,16 @@
             font-size: 14px;
             border-radius: 4px;
         }
+
         .danger {
-            background-color: hsla(0,87%,69%,.1);
-            border-color: hsla(0,87%,69%,.2);
+            background-color: hsla(0, 87%, 69%, .1);
+            border-color: hsla(0, 87%, 69%, .2);
             color: #f56c6c;
         }
+
         .success {
-            background-color: rgba(103,194,58,.1);
-            border-color: rgba(103,194,58,.2);
+            background-color: rgba(103, 194, 58, .1);
+            border-color: rgba(103, 194, 58, .2);
             color: #409eff;
         }
 
@@ -153,68 +153,43 @@
             line-height: 32px;
             outline: 0;
             padding: 0 15px;
-            -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
-            transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            -webkit-transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+            transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
             width: 100%;
         }
     </style>
 </head>
 <body>
-
+<div class="header">
+    <span class="fa fa-chrome headeri">  </span>
+</div>
 <div id="container" class="container">
 
+
     <div id="items">
-        <span class="el-tag">
-            标签一
-            <i class="el-tag__close el-icon-close"></i>
-        </span>
-        <span class="el-tag">
-            标签一一
-            <i class="el-tag__close el-icon-close"></i>
-        </span>
-        <span class="el-tag">
-            标签一一一
-            <i class="el-tag__close el-icon-close"></i>
-        </span>
+
     </div>
 
 
     <div class="button-area">
 
-        <button type="button" class="el-button button-new-tag el-button--small success"><span>+ New Tag</span>
+        <button type="button" class="el-button button-new-tag el-button--small new-item-btn success">
+            <span>+ New Tag</span>
         </button>
-        <div class="input-new-tag el-input el-input--small newitem">
-            <input type="text" autocomplete="off" class="el-input__inner">
+        <div class="input-new-tag el-input el-input--small new-item">
+            <input type="text" autocomplete="off" class="el-input__inner new-item-input">
         </div>
-        <button type="button" class="el-button button-new-tag el-button--small danger"><span>Clear</span>
+        <button type="button" class="el-button button-new-tag el-button--small clear-item-btn danger"><span>Clear</span>
         </button>
 
     </div>
 
-    <div class="add-area">
 
-        <div class="add-contianer">
-
-            <div class="add-container-row">
-                <label for="hidden-key"><i class="fa fa-paw"></i>&nbsp;名称：</label>
-                <input type="text" name="accountName" id="hidden-key"/>
-            </div>
-
-
-            <div class="add-container-row btn-area">
-                <button id="cancelBtn" class="cancel-btn"><i class="fa fa-close"></i>&nbsp;取消</button>
-                <button id="confirmBtn" class="confirm-btn"><i class="fa fa-check"></i>&nbsp;确认</button>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer">
-        <!-- Powered by kyrieliu -->
-        <i class="fa fa-chrome"> hiddden </i>
-    </div>
 </div>
 
+<div class="footer">
+    <i class="fa fa-chrome"> hiddden@uthor:rns </i>
+</div>
 
 </body>
 </html>

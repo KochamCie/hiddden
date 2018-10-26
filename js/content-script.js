@@ -1,31 +1,53 @@
 $(function () {
     console.log("content script js in !!!!")
-    clean(localStorage.getItem(getDomain(window.location.href)));
+    hide(localStorage.getItem(getDomain(window.location.href)));
 })
 
 chrome.extension.onMessage.addListener(
     function (request, sender, sendResponse) {
         console.log("onMessage", request);
-        if(request.action === 'clean'){
-            var itemk = request.itemk;
-            var itemv = request.itemv;
-            console.log(itemk, itemv)
-            localStorage.setItem(itemk, itemv)
-            sendResponse("OK");
-            clean(localStorage.getItem(itemk));
+        var itemk = request.itemk;
+        var itemv = request.itemv;
+        var before = localStorage.getItem(itemk);
+        localStorage.setItem(itemk, itemv)  // 保持一致
+        if (request.action === 'save') {
+            hide(localStorage.getItem(itemk));
+        } else if (request.action === 'removeall') {
+            show(before);
+            localStorage.removeItem(itemk);
+        } else if(request.action === 'removesingle'){
+            var single = request.single;
+            show(single)
         }
+        sendResponse("OK");
     }
 );
 
 
-function clean(key){
-    if(!key){
+function hide(key) {
+    if (!key) {
         return;
     }
-    $(key.split(",")).each(function(k, v){
+    $(key.split(",")).each(function (k, v) {
         console.log(k, v)
-        $("#"+v).hide();
-        $("."+v).hide();
+        $("#" + v).hide();
+        $("." + v).hide();
+        $("#" + v).removeAttr("display");
+        $("." + v).removeAttr("display");
+    })
+}
+
+
+function show(key) {
+    if (!key) {
+        return;
+    }
+    $(key.split(",")).each(function (k, v) {
+        console.log(k, v)
+        $("#" + v).show();
+        $("#" + v).removeAttr("display");
+        $("." + v).show();
+        $("." + v).removeAttr("display");
     })
 }
 
